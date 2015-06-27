@@ -9,7 +9,7 @@
 </head>
 <body ng-app="FirebaseApp">
 
-	<div class='container' ng-controller='FirebaseCtrl as fbCtrl' ng-init='fbCtrl.checkIfRecordsExists()'>
+	<div class='container' ng-controller='FirebaseCtrl as fbCtrl' ng-init='fbCtrl.getThoughts()'>
 		<label>submit a thought</label>
 		<input  placeholder="what you thinking?" ng-model="t.pondering" ng-required='true'>
 		<button type="submit" class="btn btn-default" ng-click="fbCtrl.addThought(t)" >Submit</button>
