@@ -1,26 +1,25 @@
 (function() {
-	var myApplication = angular.module("myApplication", []);
+	var app = angular.module("app", []);
 
-	fetchData().then(bootstrapApplication);
-	myApplication.constant('appname', 'xyz');
+	fetchData().then(bootstrapApp);
 
 	function fetchData() {
 		var initInjector = angular.injector(["ng"]);
 		var $http = initInjector.get("$http");
 
 		return $http.get("data/config.json").then(function(response) {
-			myApplication.constant("CONFIG", response.data);
+			app.constant("CONFIG", response.data);
 		}, function(errorResponse) {
-			// Handle error case
+			// error handling
 		});
 	}
 
-	function bootstrapApplication() {
+	function bootstrapApp() {
 		angular.element(document).ready(function() {
-			angular.bootstrap(document, ["myApplication"]);
+			angular.bootstrap(document, ["app"]);
 		});
 	}
-	myApplication.controller('test', ['CONFIG', '$scope' ,function(CONFIG, $scope){
+	app.controller('test', ['CONFIG', '$scope' ,function(CONFIG, $scope){
 		$scope.url = CONFIG.url;
 	}]);
 
