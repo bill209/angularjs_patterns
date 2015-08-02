@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>restful</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<!-- appName -->
+<body ng-app="Restful" >
+	<div id='restCalls' ng-controller="RestCallsCtrl as restCallsCtrl">
+
+		<div class='rest_results'>
+			<h4>{{restCallsCtrl.artist}}<br/><small>iTunes Songs</small></h4>
+			<ul id='iTunes' class="list-unstyled">
+				<li ng-repeat="song in restCallsCtrl.iTunes | orderBy:song.releaseDate">
+					<span>{{song.trackName}}</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class='rest_results'>
+			<h4>{{restCallsCtrl.author}} Books</h4>
+			<ul id='books' class="list-unstyled">
+				<li ng-repeat="book in restCallsCtrl.books | orderBy:book.volumeInfo.publishDate">
+					<span>{{book.volumeInfo.title}}</span>
+				</li>
+			</ul>
+		</div>
+
+		<div class='rest_results space'>
+			<h4>People in Space Right Now</h4>
+			<h1 class='big_number'>{{restCallsCtrl.spacePeeps.number}}</h1>
+		</div>
+
+		<div class='rest_results space'>
+			<h4>Those in Space</h4>
+			<ol id='books' class="list-unstyled">
+				<li ng-repeat="peep in restCallsCtrl.spacePeeps.people">
+					<span>{{peep.name}} is on {{peep.craft}}</span>
+				</li>
+			</ol>
+			<i class="fa fa-1x fa-rotate-right"></i>
+		</div>
+
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src='js/main.js'></script>
+	<script src='js/svc.js'></script>
+	<script src='js/controllers.js'></script>
+</body>
+</html>
