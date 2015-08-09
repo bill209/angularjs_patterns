@@ -4,7 +4,7 @@
 (function() {
 	'use strict';
 
-	// template example using directive description  method
+	// template example using directive description	method
 	angular
 		.module('App')
 		.directive('myCustomer', function() {
@@ -70,13 +70,48 @@
 
 	angular
 		.module('App')
-		.directive('ngSparkline', function() {
+		.directive('mirror', function(){
 			return {
-				restrict: 'AE',
-				require: '^ngModel',
-				template: '<div class="sparkline"><h4>Weather for {{ngModel}}</h4></div>'
+				restrict: 'C',
+				template: '<input type="text" value="{{lipstick}}"/>'
 			}
 		});
+
+	angular
+		.module('App')
+		.directive('flipIt', function(){
+			return {
+				restrict: 'C',
+				template: '<input type="text" value="{{desi}}"/>',
+				link: function (scope, element, attrs, ngModel){
+					element.on("input", function (){
+						scope.flipped = 'input';
+						scope.$apply();
+					});
+					element.on("click", function (){
+						scope.flipped = 'clicked';
+						scope.$apply();
+					});
+				}
+			}
+		});
+	// using ng-model on an element contained within the directive
+	angular
+		.module('App')
+		.directive("bank", function(){
+			return{
+				restrict: "E",
+				template: "<div> Click to deposit $10</div>",
+				require: "ngModel",
+				link: function (scope, element, attrs, ngModel){
+					element.on("click", function (){
+						ngModel.$setViewValue(ngModel.$viewValue +10);
+						scope.$apply();
+					});
+				}
+			};
+		});
+
 
 
 })();

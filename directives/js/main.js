@@ -11,6 +11,7 @@
 
 		function mainCtrl(){
 			var vm=this;
+			vm.flipped='hello';
 			vm.customer = {
 				name: 'Naomi',
 				address: '1600 Amphitheatre'
