@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>directives</title>
+</head>
+<!-- note: there is no ng-app directive -->
+<body ng-app='App' ng-controller='MainCtrl as mainCtrl'>
+	<h3>Directive: clock</h3>
+	<clock format="HH:mm:ss"></clock>
+	<h3>Directive: template</h3>
+	<div my-customer></div>
+	<h3>Directive: templateUrl</h3>
+	<div my-cousin-vinny></div>
+	<h3>Directive: link function</h3>
+	<div the-clicker>Click Me!</div>
+	<h3>Directive: data binding</h3>
+	<input type="text" ng-model="city" placeholder="Enter a city" />
+	<div ng-sparkline ng-model="city"></div>
+<br/>
+	<p>birthday</p>
+<dateselect ng-model="birthday"></dateselect>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src='js/main.js'></script>
+	<script src='js/directives.js'></script>
+</body>
+</html>
