@@ -5,35 +5,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>directives</title>
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <!-- note: there is no ng-app directive -->
 <body ng-app='App' ng-controller='MainCtrl as mainCtrl'>
-	<h3>Directive: clock</h3>
-	<clock format="HH:mm:ss"></clock>
-	<h3>Directive: template</h3>
+	<h1>Directive Examples</h1>
+	<h3>clock</h3>
+	<div><clock format="HH:mm:ss"></clock></div>
+	<hr>
+	<h3>using a template</h3>
 	<div my-customer></div>
-	<h3>Directive: templateUrl</h3>
+	<h3>using an external template</h3>
 	<div my-cousin-vinny></div>
-	<h3>Directive: link function</h3>
+	<hr>
+	<h3>the link function</h3>
 	<div the-clicker>Click Me!</div>
-    <hr>
-	<h3>Directive: data binding</h3>
+	<hr>
+	<h3>data binding</h3>
 	<div>Mirror: <input ng-model="lipstick">
 		<span class="mirror"></span>
 	</div>
-	<h3>Directive: data binding</h3>
+	<hr>
+	<h3>data binding</h3>
 	<div>flip it: <input ng-model="desi">
 		<span class="flipIt"></span>
 		<span>{{flipped}}</span>
 	</div>
-
-<br/><br/>
-
-  <div ng-init="amount = 10"></div>
-  <bank ng-model="amount"></bank>
-  {{ amount | currency}}
-
-
+	<hr>
+	<h3>data binding</h3>
+	<div ng-init="amount = 10"></div>
+  	<bank ng-model="amount"></bank>
+  	<div>{{ amount | currency}}</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src='js/main.js'></script>

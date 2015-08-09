@@ -82,14 +82,15 @@
 		.directive('flipIt', function(){
 			return {
 				restrict: 'C',
-				template: '<input type="text" value="{{desi}}"/>',
+				template: '<span>click to inverse -></span><input type="text" value="{{desi}}"/>',
 				link: function (scope, element, attrs, ngModel){
 					element.on("input", function (){
 						scope.flipped = 'input';
 						scope.$apply();
 					});
 					element.on("click", function (){
-						scope.flipped = 'clicked';
+						scope.flipped = scope.desi.split("").reverse().join("");
+
 						scope.$apply();
 					});
 				}
