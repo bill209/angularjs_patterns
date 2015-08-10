@@ -82,6 +82,10 @@
 		.directive('flipIt', function(){
 			return {
 				restrict: 'C',
+
+				scope : {
+					items : "="
+				},
 				template: '<span>click to inverse -></span><input type="text" value="{{desi}}"/>',
 				link: function (scope, element, attrs, ngModel){
 					element.on("input", function (){
@@ -113,6 +117,42 @@
 			};
 		});
 
+angular
+.module('App')
+.directive("myDirective", function(){
+	return {
+		restrict: "E",
+		template : '<h1>Click to choose!</h1><span class="clkm" ng-repeat="item in mainCtrl.items" ng-click="updateModel(item)">{{item}}</span>',
+		require: 'ngModel',
 
+		link : function(scope, element, attrs, ctrl){
+			scope.updateModel = function(item)
+			{
+				ctrl.$setViewValue(item);
+			}
+			ctrl.$viewChangeListeners.push(function() {
+				scope.$eval(attrs.ngChange);
+			});
+		}
+	};
+});
 
+angular
+.module('App')
+.directive("myDirectiveX", function(){
+	return {
+		restrict: "E",
+		template : '<h1>Click to choose!</h1><span class="clkm" ng-repeat="item in mainCtrl.items" ng-click="updateModelx(item)">{{item}}</span>',
+		require: 'ngModel',
+		link : function(scope, element, attrs, ctrl){
+			scope.updateModelx = function(item)
+			{
+				ctrl.$setViewValue(item);
+			}
+			ctrl.$viewChangeListeners.push(function() {
+				scope.$eval(attrs.ngChange);
+			});
+		}
+	};
+});
 })();

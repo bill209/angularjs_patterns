@@ -12,25 +12,34 @@
 	<h1>Directive Examples</h1>
 	<h3>clock</h3>
 	<div><clock format="HH:mm:ss"></clock></div>
-	<hr>
+
 	<h3>using a template</h3>
 	<div my-customer></div>
 	<h3>using an external template</h3>
 	<div my-cousin-vinny></div>
-	<hr>
+
 	<h3>the link function</h3>
 	<div the-clicker>Click Me!</div>
-	<hr>
+
 	<h3>data binding</h3>
 	<div>Mirror: <input ng-model="lipstick">
 		<span class="mirror"></span>
 	</div>
-	<hr>
+
 	<h3>data binding</h3>
-	<div>flip it: <input ng-model="desi">
+	<div>flip it: <input ng-model="desi" ng-change='change()'>
 		<span class="flipIt"></span>
 		<span>{{flipped}}</span>
 	</div>
+	<h3>testing</h3>
+	<p>a: {{mainCtrl.flipped}}</p>
+	<my-directive-x ng-model="boo" items=mainCtrl.items ng-change="mainCtrl.fubar(boo)"></my-directive-x>
+	<my-directive ng-model="foo" items=mainCtrl.items ng-change="mainCtrl.bar(foo)"></my-directive>
+
+    <h1>See what happens</h1>
+    <div>boo current value : {{boo}}</div>
+    <div>foo current value : {{foo}}</div>
+    <div>value of foo when bar is called: {{mainCtrl.aux}} </div>
 	<hr>
 	<h3>data binding</h3>
 	<div ng-init="amount = 10"></div>
