@@ -19,7 +19,7 @@
 	<div my-cousin-vinny></div>
 
 	<h3>the link function</h3>
-	<div the-clicker>Click Me!</div>
+	<div the-clicker>click me</div>
 
 	<h3>data binding</h3>
 	<div>Mirror: <input ng-model="lipstick">
@@ -32,22 +32,36 @@
 		<span>{{flipped}}</span>
 	</div>
 
-	<h3>testing</h3>
-	<p>a: {{mainCtrl.flipped}}</p>
-
 	<h3>data binding - ng-change</h3>
 	<my-directive-x ng-model="boo" ng-change="mainCtrl.fubar(boo)"></my-directive-x>
+	<div>boo current value : {{boo}}</div>
+
+	<h3>data binding</h3>
+	<p>click to choose</p>
 	<my-directive ng-model="foo" items=mainCtrl.items ng-change="mainCtrl.bar(foo)"></my-directive>
 
-    <h1>See what happens</h1>
-    <div>boo current value : {{boo}}</div>
-    <div>foo current value : {{foo}}</div>
-    <div>value of foo when bar is called: {{mainCtrl.aux}} </div>
-	<hr>
+	<h3>data binding</h3>
+	<div>foo current value : {{foo}}</div>
+	<div>value of boo/foo via controller scope: {{mainCtrl.aux}} </div>
+
 	<h3>data binding</h3>
 	<div ng-init="amount = 10"></div>
-  	<bank ng-model="amount"></bank>
-  	<div>{{ amount | currency}}</div>
+	<bank ng-model="amount"></bank>
+	<div>{{ amount | currency}}</div>
+
+	<h3>controller scope</h3>
+		<p ng-click="mainCtrl.reverseName()">Hey {{mainCtrl.name}}, Click me to reverse your name</p>
+		<div reverse-parent class='directive'></div>
+
+	<div ng-controller='SubCtrl'>
+
+		<h3>local scope</h3>
+		<p ng-click="reverseName2()">Hey {{name2}}, Click me to reverse your name in controller scope.<br/>
+		<small>the input box below is the directive's local scope that got inherited from the<br/>
+		controller scope. changing it breaks the tie with the controller scope.</small></p>
+		<div reverse-local class='directive'></div>
+
+	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script src='js/main.js'></script>

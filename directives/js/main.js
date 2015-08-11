@@ -31,5 +31,27 @@
 				vm.aux = foo;
 			}
 
+			vm.name = "Harry";
+			vm.reverseName = function(){
+				vm.name = vm.name.split('').reverse().join('');
+			};
+
+			// vm.name2 = "Tom";
+			// vm.reverseName2 = function(){
+			// 	vm.name2 = vm.name2.split('').reverse().join('');
+			// };
 		}
+
+	// could not get the directive's local scope to work with the 'as Controller' scope
+	angular
+		.module('App')
+		.controller('SubCtrl', function($scope){
+
+			$scope.name2 = "Tom";
+			$scope.reverseName2 = function(){
+				$scope.name2 = $scope.name2.split('').reverse().join('');
+			}
+
+		});
+
 })();

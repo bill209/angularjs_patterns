@@ -56,7 +56,11 @@
 
 			function clickMe($scope, element, attrs) {
 				element.bind('click', function () {
-					element.html('You clicked me!');
+					if(element.html() == 'click me'){
+						element.html('You clicked me!');
+					} else {
+						element.html('click me');
+					}
 				});
 				element.bind('mouseenter', function () {
 					element.css('background-color', 'yellow');
@@ -117,43 +121,67 @@
 			};
 		});
 
-angular
-.module('App')
-.directive("myDirective", function(){
-	return {
-		restrict: "E",
-		template : '<h1>Click to choose!</h1><span class="clkm" ng-repeat="item in mainCtrl.items" ng-click="updateModel(item)">{{item}}</span>',
-		require: 'ngModel',
+	angular
+	.module('App')
+	.directive("myDirective", function(){
+		return {
+			restrict: "E",
+			template : '<span class="clkm" ng-repeat="item in mainCtrl.items" ng-click="updateModel(item)">{{item}}</span>',
+			require: 'ngModel',
 
-		link : function(scope, element, attrs, ctrl){
-			scope.updateModel = function(item)
-			{
-				ctrl.$setViewValue(item);
+			link : function(scope, element, attrs, ctrl){
+				scope.updateModel = function(item)
+				{
+					ctrl.$setViewValue(item);
+				}
+				ctrl.$viewChangeListeners.push(function() {
+					scope.$eval(attrs.ngChange);
+				});
 			}
-			ctrl.$viewChangeListeners.push(function() {
-				scope.$eval(attrs.ngChange);
-			});
-		}
-	};
-});
+		};
+	});
 
-angular
-.module('App')
-.directive("myDirectiveX", function(){
-	return {
-		restrict: "E",
-		template : '<input ng-model="boo" ng-change="updateModelx(boo)">',
-		require: 'ngModel',
-		link : function(scope, element, attrs, ctrl){
-			scope.updateModelx = function(item)
-			{
-				// this allows the ng-change on the element to recognize a change has ocurred
-				ctrl.$setViewValue(item);
+	angular
+	.module('App')
+	.directive("myDirectiveX", function(){
+		return {
+			restrict: "E",
+			template : '<input ng-model="boo" ng-change="updateModelx(boo)">',
+			require: 'ngModel',
+			link : function(scope, element, attrs, ctrl){
+				scope.updateModelx = function(item)
+				{
+					// this allows the ng-change on the element to recognize a change has ocurred
+					ctrl.$setViewValue(item);
+				}
+				// ctrl.$viewChangeListeners.push(function() {
+				// 	scope.$eval(attrs.ngChange);
+				// });
 			}
-			// ctrl.$viewChangeListeners.push(function() {
-			// 	scope.$eval(attrs.ngChange);
-			// });
-		}
-	};
-});
+		};
+	});
+
+	angular
+	.module('App')
+	.directive("reverseParent", function(){
+		return {
+			restrict: "EA",
+			scope: false,		// false = use controller's scope
+			template: "<div>Your name is : {{mainCtrl.name}}</div>"+
+			"Change your name : <input type='text' ng-model='mainCtrl.name' />"
+		};
+	});
+
+
+	angular
+	.module('App')
+	.directive("reverseLocal", function(){
+		return {
+			restrict: "EA",
+			scope: true,
+			template: "<div>Your name is : {{name2}}</div>"+
+			"Change your name : <input type='text' ng-model='name2' />"
+		};
+	});
+
 })();
