@@ -142,16 +142,17 @@ angular
 .directive("myDirectiveX", function(){
 	return {
 		restrict: "E",
-		template : '<h1>Click to choose!</h1><span class="clkm" ng-repeat="item in mainCtrl.items" ng-click="updateModelx(item)">{{item}}</span>',
+		template : '<input ng-model="boo" ng-change="updateModelx(boo)">',
 		require: 'ngModel',
 		link : function(scope, element, attrs, ctrl){
 			scope.updateModelx = function(item)
 			{
+				// this allows the ng-change on the element to recognize a change has ocurred
 				ctrl.$setViewValue(item);
 			}
-			ctrl.$viewChangeListeners.push(function() {
-				scope.$eval(attrs.ngChange);
-			});
+			// ctrl.$viewChangeListeners.push(function() {
+			// 	scope.$eval(attrs.ngChange);
+			// });
 		}
 	};
 });

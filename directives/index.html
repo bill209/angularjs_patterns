@@ -31,9 +31,12 @@
 		<span class="flipIt"></span>
 		<span>{{flipped}}</span>
 	</div>
+
 	<h3>testing</h3>
 	<p>a: {{mainCtrl.flipped}}</p>
-	<my-directive-x ng-model="boo" items=mainCtrl.items ng-change="mainCtrl.fubar(boo)"></my-directive-x>
+
+	<h3>data binding - ng-change</h3>
+	<my-directive-x ng-model="boo" ng-change="mainCtrl.fubar(boo)"></my-directive-x>
 	<my-directive ng-model="foo" items=mainCtrl.items ng-change="mainCtrl.bar(foo)"></my-directive>
 
     <h1>See what happens</h1>
