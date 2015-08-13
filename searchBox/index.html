@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/main.css">
+	<title>using constants</title>
+</head>
+<!-- note: there is no ng-app directive -->
+<body ng-app='App' ng-controller='MainCtrl '>
+
+	<h3>Hall of Fame Catchers*</h3>
+	<div class="bar">
+		<!-- Create a binding between the searchString model and the text field -->
+		<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+	</div>
+
+	<ul>
+		<!-- Render a li element for every entry in the items array. Notice
+			 the custom search filter "searchFor". It takes the value of the
+			 searchString model as an argument.
+		 -->
+		<li ng-repeat="i in items | searchFor:searchString">
+			<a href="{{i.url}}">{{i.catcher}}</a>
+		</li>
+	</ul>
+	<footer>* links head over to <a href="http://www.baseball-almanac.com/">baseball-almanac.com</a>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src='js/main.js'></script>
+</body>
+</html>
