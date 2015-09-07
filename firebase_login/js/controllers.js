@@ -7,23 +7,17 @@
 
 	function fbCtrl(firebaseFactory, $firebaseArray){
 		var vm = this;
-		vm.recordsExists = true;
-		vm.thoughts = {};
-		vm.addThought = addThought;
-		vm.getThoughts = getThoughts;
+		vm.msg = 'zzz';
+		vm.e = {};
+		vm.e.EMAIL = false;
+		vm.e.PWD = false;
+
 		vm.addUser = addUser;
 
-		function getThoughts(){
-			vm.thoughts = firebaseFactory.getThoughts();
-		}
-		function addThought(d){
-			var id = firebaseFactory.addThought(d);
-			checkIfRecordsExists();
-		}
 		function addUser(d){
 			var id = firebaseFactory.addUser(d);
+			console.log('id',id);
 		}
-		vm.getThoughts();
 	}
 
 })();
