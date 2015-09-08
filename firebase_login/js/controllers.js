@@ -15,8 +15,14 @@
 		vm.addUser = addUser;
 
 		function addUser(d){
-			var id = firebaseFactory.addUser(d);
-			console.log('id',id);
+			var promise = firebaseFactory.addUser(d);
+
+			promise.then(function(uID){
+console.log('uID',uID);
+				$scope.usereID = uID;
+			});
+
+
 		}
 	}
 
