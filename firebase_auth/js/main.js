@@ -6,6 +6,6 @@ var msg = 'xxx';
 	'use strict';
 
 	angular
-		.module('FirebaseApp',['firebase']);
+		.module('FirebaseApp',['firebase', 'ngMessages']);
 
 })();

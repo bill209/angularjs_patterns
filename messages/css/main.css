@@ -1,0 +1,72 @@
+body {
+	padding: 10px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
+p {
+	font-weight: 700;
+}
+
+.no-error {
+	display: none;
+}
+
+.error {
+	margin: 0 0 0 20px;
+	color: #f88;
+}
+
+input {
+	width: 400px;
+	margin-bottom: 10px;
+	color: #555;
+	background-color: #fff;
+	display: inline-block;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+/*  input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+ input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }*/
+
+.btn:hover {
+	background-color: #eee;
+}
+.btn {
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+	margin: 0 0 10px 0;
+	font: inherit;
+}
+
+
+

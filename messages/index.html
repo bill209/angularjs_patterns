@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Angular Messages Patterns</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="MessagesApp">
+
+	<div class='container' ng-controller='msgCtrl as msgCtrl' >
+		<label>Register</label>
+		<br />
+<form name="myForm" class="myForm" required>
+
+<label>First Name: {{myForm.userName}}</label>
+<input type="text" name="userName" placeholder="name" ng-model="firstName" required />
+<div ng-messages="myForm.userName.$error" ng-if="myForm.userName.$touched">
+	<div ng-message="required">name is required</div>
+</div>
+<br/>
+
+<label>Email Address:</label>
+<input type="email" name="userEmail" placeholder="email" ng-model="email" required />
+<div ng-messages="myForm.userEmail.$error" ng-if="myForm.userEmail.$touched">
+	<div ng-message="required">This field is required</div>
+	<div ng-message="email">Your email address is invalid</div>
+</div>
+
+</form>
+
+<!--ng-model-options="{ updateOn: 'blur' }"  -->
+
+	</div>
+
+	<script src="js/libs/angular/angular.min-1.3.13.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-messages.min.js"></script>
+	<script src='js/main.js'></script>
+
+</body>
+</html>
+
+
+<!-- 				<div ng-show="form.$submitted || form.uEmail.$touched">
+					<span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+					<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+				</div>
+ -->

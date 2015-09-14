@@ -44,6 +44,14 @@ input {
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
+  input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+ input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+
 .btn:hover {
 	background-color: #eee;
 }

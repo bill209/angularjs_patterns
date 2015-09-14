@@ -12,11 +12,23 @@
 	<div class='container' ng-controller='FirebaseCtrl as fbCtrl' >
 		<label>Register</label>
 		<br />
-		<input  placeholder="email" ng-model="t.email" ng-required='true'><span ng-class="{'error': fbCtrl.e.EMAIL}">{{fbCtrl.e.EMAIL}}::error here</span>
-		<br />
-		<input  placeholder="password" ng-model="t.password" ng-required='true'><span class='error'>error here</span>
-		<br />
-		<button type="submit" class="btn btn-default" ng-click="fbCtrl.addUser(t)" >Register</button>
+		<form name="uForm" class="css-form" novalidate>
+			<input  type="email" placeholder="email" name="uEmail" ng-model="t.email" required="">
+				<span ng-class="{'error': fbCtrl.t.EMAIL}">{{fbCtrl.t.EMAIL}}::error here</span>
+				<div ng-show="form.$submitted || form.uEmail.$touched">
+					<span ng-show="form.uEmail.$error.required">Tell us your email.</span>
+					<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
+				</div>
+			<br />
+			<input  placeholder="password" name="uPass" ng-model="t.password" required minlength="5">
+			<div ng-messages="uForm.uPass.$error" role="alert">
+			<div ng-message="required">You did not enter a field</div>
+			<div ng-message="minlength" ng-show="uForm.uPass.$touched">
+				Your password must be between at least 5 characters long
+			</div>
+			<br />
+			<button type="submit" class="btn btn-default" ng-click="fbCtrl.addUser(t)" >Register</button>
+		</form>
 	</div>
 
 	<script src="js/libs/angular/angular.min-1.3.13.js"></script>
@@ -27,5 +39,7 @@
 	<!-- firebase -->
 	<script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
 	<script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-messages.min.js"></script>
+
 </body>
 </html>
