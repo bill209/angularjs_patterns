@@ -14,6 +14,7 @@ var msg = 'xxx';
 
 	function msgCtrl(){
 		var vm = this;
+		vm.phoneRegex = '/[0123]/';
 		vm.submit = submit;
 
 		function submit(formData){

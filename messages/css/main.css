@@ -10,23 +10,11 @@ label {
 	display: inline-block;
 	margin-bottom: 10px;
 	font-weight: 700;
-}
-
-p {
-	font-weight: 700;
-}
-
-.no-error {
-	display: none;
-}
-
-.error {
-	margin: 0 0 0 20px;
-	color: #f88;
+	width: 50px;
 }
 
 input {
-	width: 400px;
+	width: 200px;
 	margin-bottom: 10px;
 	color: #555;
 	background-color: #fff;
@@ -44,13 +32,13 @@ input {
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-/*  input.ng-invalid.ng-touched {
+  input.ng-invalid.ng-touched {
     background-color: #FA787E;
   }
 
  input.ng-valid.ng-touched {
     background-color: #78FA89;
-  }*/
+  }
 
 .btn:hover {
 	background-color: #eee;

@@ -10,27 +10,37 @@
 <body ng-app="MessagesApp">
 
 	<div class='container' ng-controller='msgCtrl as msgCtrl' >
-		<label>Register</label>
+		<h3>Register</h3>
 		<br />
-<form name="myForm" class="myForm" required>
+		<form name="myForm" class="myForm" required>
 
-<label>First Name: {{myForm.userName}}</label>
-<input type="text" name="userName" placeholder="name" ng-model="firstName" required />
-<div ng-messages="myForm.userName.$error" ng-if="myForm.userName.$touched">
-	<div ng-message="required">name is required</div>
-</div>
-<br/>
+			<label>name</label>
+			<input type="text" name="userName" placeholder="name" ng-model="firstName" required />
+			<ng-messages for="myForm.userName.$error" ng-if="myForm.userName.$touched">
+				<ng-message when="required">name is required</ng-message>
+			</ng-messages>
+			<br/>
 
-<label>Email Address:</label>
-<input type="email" name="userEmail" placeholder="email" ng-model="email" required />
-<div ng-messages="myForm.userEmail.$error" ng-if="myForm.userEmail.$touched">
-	<div ng-message="required">This field is required</div>
-	<div ng-message="email">Your email address is invalid</div>
-</div>
+			<label>email</label>
+			<input type="email" name="userEmail" placeholder="email" ng-model="email" required />
+			<ng-messages for="myForm.userEmail.$error" ng-if="myForm.userEmail.$touched">
+				<ng-message when="required">an email address is required</ng-message>
+				<ng-message when="email">your email address is invalid</ng-message>
+			</ng-messages>
+			<br/>
 
-</form>
+			<label>phone</label>
+			<input type="text" name="userPhone" placeholder="phone number" ng-model="phone"
+					ng-pattern="/\(?([0-9]{3})\)?\-?\.?\ ?([0-9]{3})\-?\.?([0-9]{4})/"
+			/>
 
-<!--ng-model-options="{ updateOn: 'blur' }"  -->
+			<ng-messages for="myForm.userPhone.$error" ng-if="myForm.userPhone.$touched">
+				<ng-message when="required">a phone number is required</ng-message>
+				<ng-message when="pattern">your phone number is invalid</ng-message>
+			</ng-messages>
+			<br/>
+
+		</form>
 
 	</div>
 
