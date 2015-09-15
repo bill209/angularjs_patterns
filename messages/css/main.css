@@ -15,15 +15,15 @@ label {
 
 input {
 	width: 200px;
-	margin-bottom: 10px;
+	margin:  0 10px 10px 0;
 	color: #555;
 	background-color: #fff;
 	display: inline-block;
-	height: 34px;
+	height: 14px;
 	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857143;
-	border: 1px solid #ccc;
+	border: 1px solid #898933;
 	border-radius: 4px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -33,28 +33,15 @@ input {
 }
 
   input.ng-invalid.ng-touched {
-    background-color: #FA787E;
+    border-color: #FA787E;
   }
 
  input.ng-valid.ng-touched {
-    background-color: #78FA89;
+    border-color: #78A89;
   }
 
-.btn:hover {
-	background-color: #eee;
+ng-message {
+	color: #FA787E;
 }
-.btn {
-	padding: 6px 12px;
-	line-height: 1.42857143;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	color: #333;
-	background-color: #fff;
-	border-color: #ccc;
-	margin: 0 0 10px 0;
-	font: inherit;
-}
-
 
 
