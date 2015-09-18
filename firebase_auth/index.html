@@ -15,18 +15,17 @@
 		<form name="uForm" class="css-form" novalidate>
 
 			<input type="email" name="uEmail" placeholder="email" ng-model="t.email" required />
-			<ng-messages for="myForm.userEmail.$error" ng-if="myForm.userEmail.$touched">
+			<ng-messages for="uForm.uEmail.$error" ng-if="uForm.uEmail.$touched">
 				<ng-message when="required">an email address is required</ng-message>
 				<ng-message when="email">your email address is invalid</ng-message>
 			</ng-messages>
 
 			<br />
-			<input  placeholder="xpassword" name="uPass" ng-model="t.password" required minlength="5">
-			<div ng-messages="uForm.uPass.$error" role="alert">
-			<div ng-message="required">You did not enter a field</div>
-			<div ng-message="minlength" ng-show="uForm.uPass.$touched">
-				Your password must be between at least 5 characters long
-			</div>
+			<input  placeholder="xpassword" name="uPass" ng-model="t.password" required minlength="4">
+			<ng-messages for="uForm.uPass.$error" ng-if="uForm.uPass.$touched">
+				<ng-message when="required">name is required</ng-message>
+                <ng-message when="minlength">password must be at least 4 chars in length</ng-message>
+            </ng-messages>
 			<br />
 			<button type="submit" class="btn btn-default" ng-click="fbCtrl.addUser(t)" >Register</button>
 		</form>

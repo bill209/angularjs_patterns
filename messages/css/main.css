@@ -37,7 +37,7 @@ input {
   }
 
  input.ng-valid.ng-touched {
-    border-color: #78A89;
+    border-color: #78FA7E;
   }
 
 ng-message {

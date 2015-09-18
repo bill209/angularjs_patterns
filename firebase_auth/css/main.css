@@ -16,15 +16,6 @@ p {
 	font-weight: 700;
 }
 
-.no-error {
-	display: none;
-}
-
-.error {
-	margin: 0 0 0 20px;
-	color: #f88;
-}
-
 input {
 	width: 400px;
 	margin-bottom: 10px;
@@ -45,12 +36,16 @@ input {
 }
 
   input.ng-invalid.ng-touched {
-    background-color: #FA787E;
+    border-color: #FA787E;
   }
 
  input.ng-valid.ng-touched {
-    background-color: #78FA89;
+    border-color: #78FA7E;
   }
+
+ng-message {
+	color: #FA787E;
+}
 
 .btn:hover {
 	background-color: #eee;
