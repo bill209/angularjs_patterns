@@ -13,14 +13,15 @@
 		<label>Register</label>
 		<br />
 		<form name="uForm" class="css-form" novalidate>
-			<input  type="email" placeholder="email" name="uEmail" ng-model="t.email" required="">
-				<span ng-class="{'error': fbCtrl.t.EMAIL}">{{fbCtrl.t.EMAIL}}::error here</span>
-				<div ng-show="form.$submitted || form.uEmail.$touched">
-					<span ng-show="form.uEmail.$error.required">Tell us your email.</span>
-					<span ng-show="form.uEmail.$error.email">This is not a valid email.</span>
-				</div>
+
+			<input type="email" name="uEmail" placeholder="email" ng-model="t.email" required />
+			<ng-messages for="myForm.userEmail.$error" ng-if="myForm.userEmail.$touched">
+				<ng-message when="required">an email address is required</ng-message>
+				<ng-message when="email">your email address is invalid</ng-message>
+			</ng-messages>
+
 			<br />
-			<input  placeholder="password" name="uPass" ng-model="t.password" required minlength="5">
+			<input  placeholder="xpassword" name="uPass" ng-model="t.password" required minlength="5">
 			<div ng-messages="uForm.uPass.$error" role="alert">
 			<div ng-message="required">You did not enter a field</div>
 			<div ng-message="minlength" ng-show="uForm.uPass.$touched">
