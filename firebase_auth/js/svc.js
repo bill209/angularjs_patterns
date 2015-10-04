@@ -12,6 +12,15 @@
 					'password' : userData.password
 				}, callback);
 			};
-			return { addUser : addUser };
+            var removeUser = function (email, callback){
+                ref.removeUser({ email : email , password : 'justdoit' }, function(error) {
+                    if (error){
+                        console.log('error',error);
+                    } else {
+                        console.log('user successfully deleted');
+                    }
+                })
+            };
+			return { addUser : addUser, removeUser : removeUser };
 		});
 })();
